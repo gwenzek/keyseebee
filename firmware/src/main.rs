@@ -111,8 +111,8 @@ pub static LAYERS: keyberon::layout::Layers = &[
         &[Trans,     Trans,    Trans,    Trans,      Trans,    Trans,        Trans,    Trans,  Trans,    Trans,  Trans,  Trans ],
     ], &[
         &[Trans,k(F1),k(F2),k(F3),k(F4),k(F5),k(F6),k(F7),k(F8),k(F9),k(F10), k(F11)],
-        &[Trans,Trans,Trans,Trans,Trans,Trans,Trans,Trans,k(F18),k(F19),k(F20),k(F12)],
-        &[Trans,Trans,Trans,Trans,Trans,Trans,Trans,Trans,DefaultLayer(3),Trans, Trans, Trans ],
+        &[Trans,Trans,Trans,Trans,Trans,Trans,k(VolUp),k(VolDown),k(MediaPlayPause),k(MediaPreviousSong),k(MediaNextSong),k(F12)],
+        &[Trans,Trans,Trans,Trans,Trans,Trans,Trans,Trans,Trans,Trans, Trans, DefaultLayer(3) ],
         &[Trans,Trans,Trans,Trans,Trans,Trans,Trans,Trans,Trans,Trans, Trans, Trans ],
     ], &[
         &[k(Tab),    k(Q), k(W),  k(E),    k(R), k(T), /*===*/ k(Y), k(U), k(I),     k(O),   k(P),      k(Bslash)],
