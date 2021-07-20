@@ -79,8 +79,15 @@ const L2_ENTER: Action = HoldTap {
 const CMD_SP: Action = HoldTap {
     timeout: 200,
     tap_hold_interval: 0,
-    config: HoldTapConfig::HoldOnOtherKeyPress,
+    config: HoldTapConfig::PermissiveHold,
     hold: &k(LGui),
+    tap: &k(Space),
+};
+const CTL_SP: Action = HoldTap {
+    timeout: 200,
+    tap_hold_interval: 0,
+    config: HoldTapConfig::PermissiveHold,
+    hold: &k(LCtrl),
     tap: &k(Space),
 };
 
@@ -105,8 +112,13 @@ pub static LAYERS: keyberon::layout::Layers = &[
     ], &[
         &[Trans,k(F1),k(F2),k(F3),k(F4),k(F5),k(F6),k(F7),k(F8),k(F9),k(F10), k(F11)],
         &[Trans,Trans,Trans,Trans,Trans,Trans,Trans,Trans,k(F18),k(F19),k(F20),k(F12)],
+        &[Trans,Trans,Trans,Trans,Trans,Trans,Trans,Trans,DefaultLayer(3),Trans, Trans, Trans ],
         &[Trans,Trans,Trans,Trans,Trans,Trans,Trans,Trans,Trans,Trans, Trans, Trans ],
-        &[Trans,Trans,Trans,Trans,Trans,Trans,Trans,Trans,Trans,Trans, Trans, Trans ],
+    ], &[
+        &[k(Tab),    k(Q), k(W),  k(E),    k(R), k(T), /*===*/ k(Y), k(U), k(I),     k(O),   k(P),      k(Bslash)],
+        &[k(LShift), k(A), k(S),  k(D),    k(F), k(G), /*===*/ k(H), k(J), k(K),     k(L),   k(SColon), k(Quote)],
+        &[k(LGui),  k(Z), k(X),  k(C),    k(V), k(B), /*===*/ k(N), k(M), k(Comma), k(Dot), k(Slash),  k(RShift)],
+        &[Trans,    Trans,Trans,k(Space),CTL_SP,k(BSpace), L2_ENTER, l(1), k(RAlt),  Trans,  Trans,     Trans],
     ],
 ];
 

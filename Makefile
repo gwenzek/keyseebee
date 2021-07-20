@@ -1,13 +1,15 @@
 # PKG="apt-get"
+# PKG="dnf"
 PKG="port"
+# This doesn't really work, cargo still puts a lot of stuff in ~/.cargo
 CARGO_HOME=~/.config/cargo
 CARGO_BIN=${CARGO_HOME}/bin
 
 build: firmware/keyseebee.bin
 
 flash: firmware/keyseebee.bin
-	echo "Don't forget to reboot the board in flash"
-	dfu-util -d 0483:df11 -a 0 -s 0x08000000:leave -D $<
+	echo "Don't forget to reboot the board in flash mode"
+	sudo dfu-util -d 0483:df11 -a 0 -s 0x08000000:leave -D $<
 
 clean:
 	rm firmware/keyseebee.bin
